@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* Activar la mano apuntadora para los TEMAS del Account-Setting */
+
+#themecolors a {
+    cursor: pointer;
+}
