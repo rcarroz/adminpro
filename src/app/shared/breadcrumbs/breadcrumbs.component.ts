@@ -9,17 +9,17 @@ import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
   styles: []
 })
 export class BreadcrumbsComponent implements OnInit {
-  
+
   label: string = '';
 
-  constructor( 
+  constructor(
     private  router: Router,
     public title: Title,
     public meta: Meta ) {
 
     this.getDataRoute()
                       .subscribe( data => {
-                        console.log( data );
+
                         this.label = data.titulo;
           this.title.setTitle( this.label);
 
