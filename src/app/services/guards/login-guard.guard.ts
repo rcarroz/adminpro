@@ -6,23 +6,22 @@ import { UsuarioService } from '../usuario/usuario.service';
 @Injectable()
 export class LoginGuardGuard implements CanActivate {
 
-  constructor( 
-    public _usuarioService: UsuarioService, 
+  constructor(
+    public _usuarioService: UsuarioService,
     public router: Router
   ) {}
 
 
-  canActivate(){
+  canActivate() {
 
     if ( this._usuarioService.estaLogueado() ) {
-      
+
       return true;
-    }else{
-      
+    } else {
+
       this.router.navigate(['/login']);
       return false;
     }
 
-    
   }
 }

@@ -20,7 +20,7 @@ export class BreadcrumbsComponent implements OnInit {
     this.getDataRoute()
                       .subscribe( data => {
 
-                        this.label = data.titulo;
+          this.label = data.titulo;
           this.title.setTitle( this.label);
 
           let metaTag: MetaDefinition = {
@@ -35,9 +35,8 @@ export class BreadcrumbsComponent implements OnInit {
     return this.router.events
                             .filter( evento => evento instanceof ActivationEnd)
                             .filter( (evento: ActivationEnd) => evento.snapshot.firstChild === null )
-                            .map( (evento: ActivationEnd) => evento.snapshot.data );    
+                            .map( (evento: ActivationEnd) => evento.snapshot.data );
   }
-  
 
   ngOnInit() {
   }

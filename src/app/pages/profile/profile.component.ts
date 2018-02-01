@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
       this.imagenSubir = null;
       return;
     }
-;
+
     this.imagenSubir = archivo;
 
     let reader = new FileReader();
