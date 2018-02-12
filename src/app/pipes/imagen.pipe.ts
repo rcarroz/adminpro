@@ -18,23 +18,27 @@ export class ImagenPipe implements PipeTransform {
       return img;
     }
 
-    switch( tipo ){
+    switch ( tipo ) {
 
       case 'usuario':
         url += '/usuarios/' + img;
+
         break;
 
       case 'medico':
         url += '/medicos/' + img;
+
         break;
 
       case 'hospital':
         url += '/hospitales/' + img;
+
         break;
-      
+
       default:
         console.log('Tipo de imagen no existe!');
         url += '/usuarios/xxx';
+
     }
     return url;
   }

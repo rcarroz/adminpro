@@ -37,3 +37,7 @@
     height: 100%;
     z-index: 9999;
 }
+
+.form-control.ng-touched.ng-invalid {
+    border: 2xp solid red;
+}

@@ -64,7 +64,7 @@ export class HospitalService {
 
     let url = URL_SERVICIOS + '/hospital/' + hospital._id;
         url += '?token=' + this._usuarioService.token;
-        
+
         return this.http.put( url, hospital )
                         .map( (resp: any) => {
                           swal('Hospital Actualizado', hospital.nombre, 'success');

@@ -8,7 +8,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
 
-
 @Component({
   selector: 'app-medico',
   templateUrl: './medico.component.html',
@@ -19,7 +18,6 @@ export class MedicoComponent implements OnInit {
   hospitales: Hospital[] = [];
   medico: Medico = new Medico('', '', '', '', '');
   hospital: Hospital = new Hospital('');
-
 
   constructor(
     public _medicoService: MedicoService,
@@ -32,7 +30,7 @@ export class MedicoComponent implements OnInit {
     activatedRoute.params.subscribe( params => {
       let id = params['id'];
 
-      if ( id !== 'nuevo' ){
+      if ( id !== 'nuevo' ) {
         this.cargarMedico( id );
       }
     });
@@ -62,7 +60,6 @@ export class MedicoComponent implements OnInit {
 
   }
 
-
   guardarMedico( f: NgForm ) {
 
     if ( f.invalid ) {
@@ -79,9 +76,6 @@ export class MedicoComponent implements OnInit {
 
   cambioHospital( id: string ) {
 
-    if ( id.length <= 0 ) {
-      return;
-    }
     this._hospitalService.obtenerHospital( id )
                         .subscribe( hospital => this.hospital = hospital );
   }

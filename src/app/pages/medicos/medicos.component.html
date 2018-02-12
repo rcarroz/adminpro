@@ -29,7 +29,7 @@
 
                 <h3 class="card-title">
                     Médicos registrados
-                    <label class="label label-info">{{ _medicoService.totalMedicos }}</label>
+                    <label class="label label-info">{{ medicos.length }}</label>
                 </h3>
 
                 <table class="table table-hover">
@@ -45,12 +45,13 @@
                     <tbody>
                         <tr *ngFor="let medico of medicos">
                             <td>
-                                <img (click)="actualizarImagen( medico )" [src]="medico.img | imagen: 'hospital'" class="img-50 circle pointer">
+                                <img [src]="medico.img | imagen:'medico'" class="img-50 img-circle">
                             </td>
                             <td>
                                 {{ medico.nombre }}
                             </td>
                             <td>
+
                                 {{ medico.hospital.nombre }}
                             </td>
                             <td>

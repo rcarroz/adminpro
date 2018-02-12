@@ -18,6 +18,7 @@ export class HospitalesComponent implements OnInit {
 
   hospitales: Hospital[] = [];
 
+
   constructor(
     public _hospitalService: HospitalService,
     public _modalUploadService: ModalUploadService
@@ -29,11 +30,24 @@ export class HospitalesComponent implements OnInit {
     this._modalUploadService.notificacion.subscribe( () => this.cargarHospitales() );
   }
 
-  cargarHospitales() {
-    this._hospitalService.cargarHospitales()
-                        .subscribe( hospitales => this.hospitales = hospitales );
+  buscarHospital( termino: string ) {
+
+    if ( termino.length <= 0 ) {
+      this.cargarHospitales();
+      return;
+    }
+
+    this._hospitalService.buscarHospital( termino )
+            .subscribe( hospitales => this.hospitales = hospitales );
+
   }
 
+  cargarHospitales() {
+    this._hospitalService.cargarHospitales()
+                        .subscribe( hospitales => this.hospitales = hospitales);
+  }
+
+// -------------------------
   guardarHospital( hospital: Hospital ) {
 
     this._hospitalService.actualizarHospital( hospital )
@@ -55,7 +69,7 @@ export class HospitalesComponent implements OnInit {
       icon: 'info',
       buttons: true,
       dangerMode: true
-    }).then( (valor: string ) => {
+    }).then( ( valor: string ) => {
 
       if ( !valor || valor.length === 0 ) {
         return;
@@ -72,4 +86,6 @@ export class HospitalesComponent implements OnInit {
     this._modalUploadService.mostralModal( 'hospitales', hospital._id );
 
   }
+
+
 }
